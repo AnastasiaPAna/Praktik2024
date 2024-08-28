@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  My Blog
+{% endblock %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "post.css" %}?v=0.2">
+  <link rel="stylesheet" href="{% static "index.css" %}?v=0.1">
+{% endblock %}
+
+{% block content %}
+  <section id="welcome">
+    <header>
+      <img src="{% static "images/logo.jpg"%}" alt="Anastasia - W.E.Y.W shop" />
+      <h2>W.E.Y.W</h2>
+    </header>
+    <p>Hi, it's <a href="https://www.instagram.com/weyw__clothes_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">W.E.Y.W</a>, my small clothes instagram shop</p>
+  </section>
+
+  <section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+    <ul>
+      {% for post in posts %}
+        {% include "includes/post.html" %}
+      {% endfor %}
+    </ul>
+    
+  </section>
+  <section id="about">
+    <h2>Хто ми?</h2>
+    <p>Ми магазин жіночого одягу, ви можете замовити одяг у нас в Instagram.
+    <p>
+      А на нашому сайті ми будемо розповідати про актуальні тренди та фасони одягу.
+    </p>
+  </section>
+{% endblock %}
